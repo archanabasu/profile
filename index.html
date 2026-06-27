@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Archana Basu, PhD — Research Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:      #1a1a2e;
+      --slate:    #2e3a59;
+      --teal:     #2a7f7f;
+      --teal-lt:  #3aadad;
+      --teal-bg:  #e6f4f4;
+      --sand:     #f5f0e8;
+      --warm:     #ede8df;
+      --accent:   #c47c3e;
+      --acc-bg:   #fdf4ec;
+      --muted:    #6b7280;
+      --white:    #ffffff;
+      --card-bg:  #fafaf8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--sand);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--ink);
+      color: var(--white);
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(42,127,127,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(196,124,62,.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-text {
+      padding: 10vh 6vw 10vh 8vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--teal-lt);
+      margin-bottom: 1.6rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -.01em;
+      margin-bottom: .9rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--teal-lt); }
+
+    .hero-degree {
+      font-size: .85rem;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 2.4rem;
+    }
+    .hero-bio {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.82);
+      max-width: 44ch;
+      line-height: 1.75;
+      margin-bottom: 2.8rem;
+    }
+
+    /* Affiliation chips */
+    .affiliations { display: flex; flex-direction: column; gap: .55rem; }
+    .affil-item { display: flex; align-items: flex-start; gap: .85rem; font-size: .82rem; color: rgba(255,255,255,.62); }
+    .affil-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal-lt); flex-shrink: 0; margin-top: .45rem; }
+
+    /* Hero right — animated rings */
+    .hero-right {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      padding: 6vh 4vw;
+    }
+    .hero-graphic { position: relative; width: min(480px, 92%); aspect-ratio: 1; }
+    .circle-ring {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 1.5px solid rgba(58,173,173,.55);
+      animation: spin-slow 40s linear infinite;
+      box-shadow: 0 0 18px rgba(58,173,173,.12);
+    }
+    .circle-ring:nth-child(2) { inset: 10%; border-color: rgba(196,124,62,.45); border-width: 1.5px; animation-direction: reverse; animation-duration: 55s; box-shadow: 0 0 18px rgba(196,124,62,.10); }
+    .circle-ring:nth-child(3) { inset: 22%; border-color: rgba(58,173,173,.7); border-width: 2px; animation-duration: 30s; box-shadow: 0 0 24px rgba(58,173,173,.18); }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    .circle-center {
+      position: absolute; inset: 28%; border-radius: 50%;
+      background: radial-gradient(circle, rgba(42,127,127,.42), rgba(42,127,127,.10));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; color: rgba(255,255,255,.85); text-align: center; padding: 1rem;
+      box-shadow: 0 0 40px rgba(42,127,127,.25), inset 0 0 30px rgba(42,127,127,.15);
+    }
+    .orbit-label {
+      position: absolute; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.72); white-space: nowrap;
+      text-shadow: 0 0 8px rgba(58,173,173,.5);
+    }
+    /* 6 labels evenly spaced: top, upper-right, lower-right, bottom, lower-left, upper-left */
+    .ol-1 { top: 0%;    left: 50%; transform: translateX(-50%); }
+    .ol-2 { top: 16%;  right: -12%; transform: none; text-align: left; }
+    .ol-3 { bottom: 16%; right: -14%; transform: none; text-align: left; }
+    .ol-4 { bottom: 0%; left: 50%; transform: translateX(-50%); }
+    .ol-5 { bottom: 16%; right: auto; left: -14%; transform: none; text-align: right; }
+    .ol-6 { top: 16%;  right: auto; left: -12%; transform: none; text-align: right; }
+
+    /* ── STICKY NAV ── */
+    .section-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(26,26,46,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(42,127,127,.2);
+      padding: .85rem 8vw;
+      display: flex; gap: 2rem; overflow-x: auto;
+    }
+    .section-nav a {
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); text-decoration: none; white-space: nowrap;
+      transition: color .25s;
+    }
+    .section-nav a:hover { color: var(--teal-lt); }
+
+    /* ── SHARED SECTION ── */
+    section { padding: 7rem 8vw; }
+    section:nth-of-type(even) { background: var(--warm); }
+
+    .section-label {
+      font-size: .7rem; font-weight: 500; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300; line-height: 1.15; color: var(--ink); margin-bottom: 3rem;
+    }
+    .section-title em { font-style: italic; color: var(--teal); }
+
+    /* ── OVERVIEW ── */
+    .overview-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 4rem; align-items: start; }
+    .overview-body p { font-size: 1.05rem; color: var(--slate); margin-bottom: 1.4rem; max-width: 65ch; }
+    .stat-stack { display: flex; flex-direction: column; gap: 1.8rem; }
+    .stat-card { border-left: 3px solid var(--teal); padding-left: 1.4rem; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.6rem;
+      font-weight: 300; color: var(--teal); line-height: 1;
+    }
+    .stat-label { font-size: .78rem; letter-spacing: .06em; color: var(--muted); margin-top: .3rem; }
+
+    /* ── RESEARCH THEMES ── */
+    .themes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 2rem; }
+    .theme-card {
+      background: var(--white); border: 1px solid rgba(42,127,127,.12);
+      border-radius: 2px; padding: 2rem 1.8rem; position: relative;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .theme-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(26,26,46,.08); }
+    .theme-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-lt));
+    }
+    .theme-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.8rem;
+      font-weight: 300; color: rgba(42,127,127,.13); line-height: 1; margin-bottom: .4rem;
+    }
+    .theme-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.35rem;
+      font-weight: 600; color: var(--ink); margin-bottom: .75rem; line-height: 1.2;
+    }
+    .theme-desc { font-size: .88rem; color: var(--muted); line-height: 1.7; }
+    .theme-bullets { margin-top: .9rem; padding-left: 1rem; display: flex; flex-direction: column; gap: .35rem; }
+    .theme-bullets li { font-size: .82rem; color: var(--slate); line-height: 1.55; }
+    .theme-tags { margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+    .tag {
+      font-size: .65rem; letter-spacing: .08em; text-transform: uppercase;
+      background: rgba(42,127,127,.08); color: var(--teal);
+      padding: .25rem .65rem; border-radius: 1px;
+    }
+
+
+    /* ── CLINICAL WORK ── */
+    .clinical-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; grid-template-rows: auto; }
+    .clinical-split .clinical-body { grid-column: 1; }
+    .clinical-split ul.clinical-list { grid-column: 2; }
+    .clinical-programs-row { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+    .clinical-body p { font-size: 1rem; color: var(--slate); margin-bottom: 1.3rem; }
+    .clinical-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .clinical-list li { display: flex; gap: 1rem; align-items: flex-start; font-size: .92rem; color: var(--slate); }
+    .cli-bullet {
+      width: 20px; height: 20px; border-radius: 50%; background: var(--teal);
+      color: var(--white); font-size: .65rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: .18rem; font-weight: 500;
+    }
+
+    /* ── PROGRAM HIGHLIGHT BOX ── */
+    .program-box {
+      background: var(--teal-bg); border: 1px solid rgba(42,127,127,.2);
+      border-left: 4px solid var(--teal);
+      padding: 1.6rem 1.8rem; margin-top: 2rem; border-radius: 0 2px 2px 0;
+    }
+    .program-box h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+      color: var(--teal); margin-bottom: .5rem;
+    }
+    .program-box p { font-size: .9rem; color: var(--slate); }
+
+    /* ── PUBLICATIONS ── */
+    .pubs-intro { font-size: 1rem; color: var(--slate); max-width: 70ch; margin-bottom: 2.5rem; }
+    .pubs-list { display: flex; flex-direction: column; }
+    .pub-item {
+      border-top: 1px solid rgba(42,127,127,.15); padding: 1.5rem 0;
+      display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: start;
+    }
+    .pub-item:last-child { border-bottom: 1px solid rgba(42,127,127,.15); }
+    .pub-year { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--teal); min-width: 3.2rem; padding-top: .1rem; }
+    .pub-title { font-size: .95rem; color: var(--ink); font-weight: 400; margin-bottom: .3rem; line-height: 1.5; }
+    .pub-journal { font-size: .78rem; color: var(--muted); font-style: italic; }
+    .pub-note { display: inline-block; font-size: .65rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; background: rgba(196,124,62,.1); color: var(--accent); padding: .15rem .5rem; border-radius: 1px; margin-top: .35rem; }
+
+    /* ── MENTORSHIP ── */
+    .mentors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
+    .mentor-card { background: var(--white); border: 1px solid rgba(42,127,127,.12); padding: 1.2rem 1.4rem; border-radius: 2px; }
+    .mentor-pos  { font-size: .78rem; color: var(--teal); margin-bottom: .35rem; }
+    .mentor-note { font-size: .78rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── AWARDS ── */
+    .awards-list { display: flex; flex-direction: column; gap: 1rem; }
+    .award-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .award-year { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--teal); min-width: 3.5rem; padding-top: .15rem; }
+    .award-body { }
+    .award-title { font-size: .92rem; font-weight: 500; color: var(--ink); margin-bottom: .15rem; }
+    .award-inst  { font-size: .78rem; color: var(--muted); }
+
+    /* ── PUBLIC ENGAGEMENT ── */
+    .engage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(265px,1fr)); gap: 1.5rem; }
+    .engage-card { border: 1px solid rgba(42,127,127,.15); padding: 1.5rem; background: var(--white); border-radius: 2px; }
+    .engage-outlet { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: .55rem; }
+    .engage-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--ink); line-height: 1.35; }
+    .engage-year  { font-size: .75rem; color: var(--muted); margin-top: .4rem; }
+
+    /* ── CV DOWNLOAD CTA ── */
+    .cta-bar {
+      background: var(--teal); color: var(--white);
+      padding: 2.5rem 8vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .cta-bar p { font-size: 1rem; color: rgba(255,255,255,.85); max-width: 60ch; }
+    .cta-btn {
+      display: inline-block; padding: .75rem 2rem;
+      background: var(--white); color: var(--teal);
+      font-size: .8rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+      text-decoration: none; border-radius: 1px; white-space: nowrap;
+      transition: background .2s;
+    }
+    .cta-btn:hover { background: var(--sand); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: rgba(255,255,255,.45);
+      padding: 4rem 8vw; display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .foot-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; color: rgba(255,255,255,.8); }
+    .foot-note { font-size: .72rem; letter-spacing: .06em; max-width: 40ch; text-align: right; }
+
+    /* ── FADE IN ── */
+    .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp .7s ease forwards; }
+    .fade-up.d1 { animation-delay: .1s; }
+    .fade-up.d2 { animation-delay: .25s; }
+    .fade-up.d3 { animation-delay: .4s; }
+    .fade-up.d4 { animation-delay: .55s; }
+    .fade-up.d5 { animation-delay: .7s; }
+    @keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { display: none; }
+      .overview-grid, .clinical-split { grid-template-columns: 1fr; gap: 2.5rem; }
+      .clinical-programs-row { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; }
+      .foot-note { text-align: left; }
+      .cta-bar { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="hero-text">
+    <p class="eyebrow fade-up d1">Clinical Psychology · Epidemiology · Child & Family Mental Health</p>
+    <h1 class="fade-up d2">Archana<br><em>Basu</em></h1>
+    <p class="hero-degree fade-up d2">PhD · Clinical Psychologist, Assistant Professor, & Research Scientist</p>
+    <p class="hero-bio fade-up d3">
+      Dr. Basu directs the <strong style="color:var(--teal-lt);"><a href="https://archanabasu.github.io/pediatricpopulationhealth/" target="_blank" style="color:var(--teal-lt); text-decoration:none;">Pediatric Population Health in Action</a></strong> program — 
+      an integrated portfolio of research, clinical care, and training that investigates 
+      how trauma shapes children's development across generations, and translates 
+      that evidence into scalable, trauma-informed interventions for families.
+    </p>
+    <div class="affiliations fade-up d4">
+      <div class="affil-item">
+        <span class="affil-dot"></span>
+        Assistant Professor of Psychology in Psychiatry — Harvard Medical School
+      </div>
+      <div class="affil-item">
+        <span class="affil-dot"></span>
+        Research Scientist, Department of Epidemiology — Harvard T.H. Chan School of Public Health
+      </div>
+      <div class="affil-item">
+        <span class="affil-dot"></span>
+        Psychologist, Division of Child &amp; Adolescent Psychiatry — Massachusetts General Hospital
+      </div>
+      <div class="affil-item">
+        <span class="affil-dot"></span>
+        Co-Director, Integrated Primary Care Program — MGH/MassGeneral Brigham
+      </div>
+    </div>
+  </div>
+  <div class="hero-right fade-up d5">
+    <div class="hero-graphic">
+      <div class="circle-ring"></div>
+      <div class="circle-ring"></div>
+      <div class="circle-ring"></div>
+      <div class="circle-center">Pediatric<br>Population<br>Health</div>
+      <span class="orbit-label ol-1">Trauma &amp; Adversity</span>
+      <span class="orbit-label ol-2">Biobehavioral Mechanisms</span>
+      <span class="orbit-label ol-3">Systemic, Familial &amp; Individual Resilience</span>
+      <span class="orbit-label ol-4">Intergenerational Health</span>
+      <span class="orbit-label ol-5">Community Engagement &amp; Relational Health</span>
+      <span class="orbit-label ol-6">Interventions &amp; Policy</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══ STICKY NAV ══ -->
+<nav class="section-nav">
+  <a href="#overview">Overview</a>
+  <a href="#themes">Research Themes</a>
+  <a href="#clinical">Clinical Work</a>
+  <a href="#publications">Publications</a>
+  <a href="#mentorship">Mentorship</a>
+  <a href="#awards">Awards</a>
+  <a href="#engagement">Public Engagement</a>
+</nav>
+
+<!-- ══ OVERVIEW ══ -->
+<section id="overview">
+  <p class="section-label">At a Glance</p>
+  <h2 class="section-title">A bridge between<br><em>science and care</em></h2>
+  <div class="overview-grid" style="grid-template-columns: 1fr;">
+    <div class="overview-body">
+      <p>
+        Dr. Archana Basu portfolio of clinical programs and research bridges the gap between population science and individual clinical care. Trained at 
+        Michigan State University (PhD, Clinical Psychology), she completed postdoctoral 
+        fellowships at Cornell/NewYork-Presbyterian, Columbia University Medical Center 
+        (developmental neuroscience), and Harvard T.H. Chan School of Public Health 
+        (epidemiology), before joining the Harvard/MGH faculty in 2016.
+      </p>
+      <p>
+        She directs the <a href="https://archanabasu.github.io/pediatricpopulationhealth" target="_blank" style="color:var(--teal); text-decoration:none; border-bottom: 1px solid rgba(42,127,127,.35);"><em>Pediatric Population Health in Action</em> program</a>, which examines how early trauma, particularly in the perinatal and early childhood periods, 
+        shapes children's behavioral, biological, and physical health outcomes. She investigates 
+        both the mechanisms of harm (maternal stress biology, DNA methylation, caregiving 
+        sensitivity) and the pathways to resilience (parent-child relationships, trauma-informed 
+        interventions, integrated primary care).
+      </p>
+      <p>
+        At MGH, she co-founded and co-directs the <em>Integrated Primary Care (IPC) Program</em>, 
+        which embeds psychologists and social workers in primary care pediatric and adolescent 
+        clinics — delivering more than 1,000 patient consultations since 2021. She is also 
+        Principal Investigator in the <a href="https://www.broadtraumainitiative.org/" target="_blank" style="color:var(--teal); text-decoration:none; border-bottom: 1px solid rgba(42,127,127,.35);">Broad Trauma Initiative</a>'s 
+        pediatric work stream at the Broad Institute. This transformational grant aims to scale 
+        trauma-informed interventions in MGH's pediatric care system.
+      </p>
+      <p>
+        Internationally, Dr. Basu is a lead investigator on the <a href="https://www.acproesa.com.pe/" target="_blank" style="color:var(--teal); text-decoration:none; border-bottom: 1px solid rgba(42,127,127,.35);">PrOMIS cohort</a> — a landmark 
+        longitudinal birth cohort study of over 3,300 low-income Peruvian women and their 
+        children, now followed through middle childhood.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ RESEARCH THEMES ══ -->
+<section id="themes">
+  <p class="section-label">Research Focus Areas</p>
+  <h2 class="section-title">Key <em>Themes</em> in Dr. Basu's Work</h2>
+  <div class="themes-grid">
+
+    <div class="theme-card">
+      <div class="theme-num">01</div>
+      <div class="theme-title">Intergenerational Trauma &amp; Child Development</div>
+      <div class="theme-desc">The central question driving Dr. Basu's research program: how does a mother's lifetime history of trauma shape her child's behavioral and biological development — and what mechanisms explain this link?</div>
+      <ul class="theme-bullets">
+        <li>NICHD R01 examining chronicity and timing of maternal trauma and 3-year-olds' behavioral health (DNA methylation and caregiving sensitivity as mechanisms)</li>
+        <li>PrOMIS cohort: prenatal cortisone dysregulation predicts school-age behavioral problems, especially in girls (Künzel et al., 2026)</li>
+        <li>Maternal trauma history and child behavior outcomes in a Peruvian mother-child cohort (Regan et al., 2025)</li>
+      </ul>
+      <div class="theme-tags">
+        <span class="tag">Epigenetics</span>
+        <span class="tag">DNA Methylation</span>
+        <span class="tag">HPA Axis</span>
+        <span class="tag">Birth Cohort</span>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-num">02</div>
+      <div class="theme-title">Trauma-Informed Pediatric Population Health</div>
+      <div class="theme-desc">Dr. Basu leads a major program to embed trauma-informed, transdiagnostic mental health care into pediatric primary and specialty care at MGH/MGB — designed to reach children and families at population scale.</div>
+      <ul class="theme-bullets">
+        <li>Co-founder and co-director of the MGH Integrated Primary Care (IPC) Program: psychologists embedded in primary care pediatric clinics</li>
+        <li>Principal Investigator: Broad Institute grant (2024–2029) to scale trauma-informed group interventions for children ages 2–12</li>
+        <li>Pilot study of tiered trauma-informed model across primary and secondary care (Mikesell et al., 2025)</li>
+        <li>Co-developer of DBT-Elementary (DBT-E), a novel adapted intervention under pragmatic trial</li>
+      </ul>
+      <div class="theme-tags">
+        <span class="tag">TIC</span>
+        <span class="tag">Integrated Care</span>
+        <span class="tag">Implementation Science</span>
+        <span class="tag">DBT-E</span>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-num">03</div>
+      <div class="theme-title">Childhood Adversity &amp; Physical Health</div>
+      <div class="theme-desc">A foundational thread in Dr. Basu's work: understanding why children exposed to trauma face elevated risks for chronic physical conditions across the lifespan — and how to break that chain.</div>
+      <ul class="theme-bullets">
+        <li>Childhood maltreatment and risk for cardiovascular disease and type 2 diabetes in adults (Basu et al., 2017)</li>
+        <li>Childhood violence exposure and chronic conditions in a national US adolescent sample (McLaughlin, Basu et al., 2016)</li>
+        <li>Biological assessments pre/post intervention to track physiological effects of psychotherapy</li>
+      </ul>
+      <div class="theme-tags">
+        <span class="tag">ACEs</span>
+        <span class="tag">Cardiometabolic Risk</span>
+        <span class="tag">Physical Health</span>
+        <span class="tag">Biomarkers</span>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-num">04</div>
+      <div class="theme-title">Perinatal &amp; Maternal Mental Health</div>
+      <div class="theme-desc">Pregnancy and early parenthood are critical windows for identifying and treating trauma. Dr. Basu's research spans populations from Lima, Peru to global COVID-19 cohorts, examining PTSD, depression, and prenatal stress.</div>
+      <ul class="theme-bullets">
+        <li>PrOMIS cohort: 87.8% lifetime trauma prevalence; PTSD rates 4× the US average in pregnant Peruvian women (Gelaye et al., 2017; Levey et al., 2018)</li>
+        <li>Cross-national COVID-19 perinatal mental health study across multiple countries (Basu et al., 2021)</li>
+        <li>Sleep as a protective factor for depression and anxiety in the perinatal period using novel causal analysis (Basu et al., 2024)</li>
+        <li>Pandemic stress and child behavioral outcomes in Peru (Blevins et al., 2025)</li>
+      </ul>
+      <div class="theme-tags">
+        <span class="tag">Perinatal Health</span>
+        <span class="tag">PTSD</span>
+        <span class="tag">Global Health</span>
+        <span class="tag">COVID-19</span>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-num">05</div>
+      <div class="theme-title">Resilience, Protective Factors &amp; Parenting</div>
+      <div class="theme-desc">Rather than cataloguing risk alone, Dr. Basu's work actively identifies what protects children from harm — particularly the quality of the parent-child relationship — and turns those insights into intervention targets.</div>
+      <ul class="theme-bullets">
+        <li>Maternal caregiving sensitivity as a mechanism linking trauma history to child outcomes (NICHD R01)</li>
+        <li>Protective factors for family wellbeing during COVID-19 in child psychiatric settings (Urban, Friedman, Basu et al., 2022)</li>
+        <li>Parent advisory board model integrated into trauma-informed clinical research (presented 2024–2025)</li>
+        <li>Perinatal parenting and sleep medicine program development (Saltonstall Foundation)</li>
+      </ul>
+      <div class="theme-tags">
+        <span class="tag">Parenting</span>
+        <span class="tag">Resilience</span>
+        <span class="tag">Parent-Child Relationship</span>
+        <span class="tag">CBPR</span>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-num">06</div>
+      <div class="theme-title">Intimate Partner &amp; Family Violence</div>
+      <div class="theme-desc">From her doctoral work through her current research, Dr. Basu has studied the biological and psychological sequelae of intimate partner violence — in women who experience it and the children who witness it.</div>
+      <ul class="theme-bullets">
+        <li>Cortisol functioning and HPA axis dysregulation in women exposed to IPV (Basu et al., 2013; Blue Cross Blue Shield award)</li>
+        <li>Longitudinal group intervention for women and children exposed to domestic violence (Basu et al., 2009)</li>
+        <li>IPV and financial adversity as predictors of familial homelessness in the ALSPAC cohort (Chan, Sarvet, Basu et al., 2021)</li>
+        <li>Clinical programming: teen healthy relationships and IPV awareness for adolescents</li>
+      </ul>
+      <div class="theme-tags">
+        <span class="tag">IPV</span>
+        <span class="tag">Cortisol / HPA</span>
+        <span class="tag">Family Violence</span>
+        <span class="tag">Group Intervention</span>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-num">07</div>
+      <div class="theme-title">Post-Traumatic Stress Across the Lifespan</div>
+      <div class="theme-desc">Drawing on large epidemiological samples and the AURORA Study — a major NIMH-funded longitudinal cohort of trauma survivors — Dr. Basu examines PTSD trajectories, comorbidities, and risk factors across populations.</div>
+      <ul class="theme-bullets">
+        <li>AURORA Study: multimodal, longitudinal NIMH cohort of trauma survivors presenting to emergency departments (McLean, Basu et al., 2020)</li>
+        <li>Psychiatric comorbidity following stress disorder diagnoses in Danish school-aged children (Basu et al., 2020)</li>
+        <li>Network analysis of culturally specific trauma responses in Vietnam (Trang, Basu et al., 2025)</li>
+        <li>Systematic review of psychotherapy interventions for childhood traumatic stress (2025)</li>
+      </ul>
+      <div class="theme-tags">
+        <span class="tag">PTSD Trajectories</span>
+        <span class="tag">AURORA Study</span>
+        <span class="tag">Comorbidity</span>
+        <span class="tag">Global Populations</span>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-num">08</div>
+      <div class="theme-title">Community-Based Participatory Research</div>
+      <div class="theme-desc">Dr. Basu is committed to research that is conducted with communities, not just on them — integrating community voice into study design, intervention development, and knowledge translation.</div>
+      <ul class="theme-bullets">
+        <li>Parent advisory board as co-developers of trauma-informed clinical research at MGH (Broad Institute)</li>
+        <li>Community presentations of PrOMIS findings to affected communities in Lima (INMP &amp; PROESA)</li>
+        <li>Systematic review of community-based participatory research to address childhood trauma in the US (2025)</li>
+        <li>2026 invited address to the United Nations Population Fund, Lima, Peru</li>
+      </ul>
+      <div class="theme-tags">
+        <span class="tag">CBPR</span>
+        <span class="tag">Community Engagement</span>
+        <span class="tag">Knowledge Translation</span>
+        <span class="tag">Health Equity</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ CLINICAL WORK ══ -->
+<section id="clinical">
+  <p class="section-label">Clinical Practice &amp; Program Leadership</p>
+  <h2 class="section-title">Where Research Meets <em>Lived Experience</em></h2>
+  <div class="clinical-split">
+    <div class="clinical-body">
+      <p>
+        Dr. Basu is a practicing clinical psychologist and holds active licenses in 
+        Massachusetts and New York. She works with children, adolescents, young adults, 
+        and their families to support their coping and resilience in the context of 
+        adversities, trauma, serious medical illnesses, grief, and bereavement.
+      </p>
+      <p>
+        Beyond individual care, she has led systemic clinical program development at MGH: 
+        as a founding co-director of the Integrated Primary Care (IPC) program, 
+        building trauma-informed, family-centered, and group-based parenting intervention 
+        teams, and co-developing the ALS <em>Parenting At a Challenging Time</em> (PACT) 
+        Program, which supports ALS patients who are parents/grandparents. Moreover, she 
+        also conducts clinical research examining trauma-informed transdiagnostic 
+        interventions and is a co-developer of Dialectical Behavior Therapy-Elementary 
+        (DBT-E) intervention for children (ages 7–12) and their parents/caregivers, which 
+        aims to improve children's emotional behavioral regulation skills and parents' 
+        efficacy as "emotion coaches." Finally, Dr. Basu is engaged in cross-sector 
+        collaboratives for trauma-informed public health approaches to address upstream 
+        social determinants of mental health across the lifecourse.
+      </p>
+    </div>
+    <ul class="clinical-list">
+      <li>
+        <span class="cli-bullet">✓</span>
+        <span><strong>Childhood Trauma &amp; PTSD:</strong> Assessment and trauma-focused psychotherapy (TF-CBT) for children and adolescents with histories of physical, emotional, or sexual abuse; domestic violence exposure.</span>
+      </li>
+      <li>
+        <span class="cli-bullet">✓</span>
+        <span><strong>Parenting &amp; Early Childhood:</strong> Group and individual interventions for parents and families with children ages 2–12, including DBT-Elementary and Integrated Primary Care brief consults.</span>
+      </li>
+      <li>
+        <span class="cli-bullet">✓</span>
+        <span><strong>Perinatal Mental Health:</strong> Support for pregnant individuals and new parents navigating depression, anxiety, PTSD, and the challenges of the transition to parenthood.</span>
+      </li>
+      <li>
+        <span class="cli-bullet">✓</span>
+        <span><strong>Chronic &amp; Terminal Illness:</strong> Psychological support for parents and families of patients with ALS and other life-threatening conditions through the MGH Healey Center PACT Program (<em>Parenting At a Challenging Time</em>).</span>
+      </li>
+      <li>
+        <span class="cli-bullet">✓</span>
+        <span><strong>Grief &amp; Bereavement:</strong> Clinical care for children and families navigating significant loss, including death of a caregiver.</span>
+      </li>
+      <li>
+        <span class="cli-bullet">✓</span>
+        <span><strong>Teen Relationships &amp; IPV Prevention:</strong> Psychoeducation and clinical support for adolescents on healthy relationships and recognition of intimate partner violence.</span>
+      </li>
+    </ul>
+    <div class="clinical-programs-row">
+      <div class="program-box">
+        <h4><a href="https://archanabasu.github.io/pediatricpopulationhealth/#programs" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(42,127,127,.3);">Integrated Primary Care (IPC) Program</a></h4>
+        <p>Co-directed with Dr. Nancy Rotter in 2021, IPC embeds psychologists and social workers in MGH primary care pediatric and adolescent medicine clinics to screen, evaluate, triage, and deliver time-limited evidence-based interventions for children from birth through age 21. The program has delivered over 1,000 patient consultations since launch.</p>
+      </div>
+      <div class="program-box" style="background:rgba(92,61,110,.07); border-color:rgba(92,61,110,.2); border-left-color:#5c3d6e;">
+        <h4 style="color:#5c3d6e;"><a href="https://archanabasu.github.io/pediatricpopulationhealth/#dbt-e" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(92,61,110,.3);">DBT-Elementary (DBT-E)</a></h4>
+        <p>DBT-Elementary (DBT-E) is a 12-week, trauma-informed, family-based intervention for children ages 7–12 with emerging emotional or behavioral dysregulation. It is currently under pragmatic trial. Led by Makiko Watanabe, PhD. Co-Developers: Makiko Watanabe, PhD · Christina Dolce, PsyD · Archana Basu, PhD (2023).</p>
+      </div>
+      <div class="program-box" style="background:rgba(163,64,96,.06); border-color:rgba(163,64,96,.2); border-left-color:#a34060;">
+        <h4 style="color:#a34060;"><a href="https://archanabasu.github.io/pediatricpopulationhealth/#pyc" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(163,64,96,.3);">Parenting Young Children</a></h4>
+        <p>A 12-week, trauma-informed, group-based intervention for parents and caregivers of children ages 2–6 with emerging emotional dysregulation, led by Dana Allswede, PhD. The program builds developmental understanding, concrete behavior navigation strategies, parenting self-awareness, and co-regulation skills. A Spanish-language version of this intervention was also piloted.</p>
+      </div>
+      <div class="program-box" style="background:rgba(42,100,80,.06); border-color:rgba(42,100,80,.2); border-left-color:#2a6450;">
+        <h4 style="color:#2a6450;"><a href="https://www.massgeneral.org/assets/MGH/pdf/neurology/als/pact-brochure.pdf" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(42,100,80,.3);">The Daniella Lipper ALS Parenting At a Challenging Time (PACT) Program</a></h4>
+        <p>Co-developed with Drs. Cindy Moore and Paula Rausch, this program provides guidance to support parents and grandparents in addressing the ALS-related challenges faced by their children and adolescents such as coping with a loved ones' ALS-related progression, anticipatory grief, and bereavement. The ALS-PACT program offers a range of <a href="https://www.massgeneral.org/neurology/als/services/als-parenting-pact#parenting-with-als" target="_blank" style="color:#2a6450; text-decoration:none; border-bottom:1px solid rgba(42,100,80,.3);">psychoeducational resources to children and families and clinicians</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PUBLICATIONS ══ -->
+<section id="publications">
+  <p class="section-label">Scholarship</p>
+  <h2 class="section-title">Selected <em>Publications</em></h2>
+  <p class="pubs-intro">Dr. Basu has authored or co-authored rigorous <a href="https://orcid.org/0000-0003-2585-868X" target="_blank" style="color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(42,127,127,.35);">publications</a> across clinical psychology, psychiatric epidemiology, and public health in high-impact peer-reviewed journals. A selection of representative work is listed below, spanning her major research threads.</p>
+
+  <div class="pubs-list">
+
+    <div class="pub-item">
+      <span class="pub-year">2026</span>
+      <div>
+        <div class="pub-title">Time-dependent association between prenatal hair glucocorticoid levels and child behavior problems</div>
+        <div class="pub-journal">Journal of Child Psychology and Psychiatry · Künzel, Chen, Rondon, Basu A. et al. [N=271 mother-child dyads; children mean age 6.98]</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2026</span>
+      <div>
+        <div class="pub-title">Caregiving responsibilities, living alone, and mental health among older women during collective stress</div>
+        <div class="pub-journal">Journal of Gerontology B · Zhu, Sampson, Basu A., Koenen, Kubzansky et al.</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2025</span>
+      <div>
+        <div class="pub-title">Implementing a trauma-informed approach in a tiered model of pediatric population mental health care: a pilot study in primary and secondary care</div>
+        <div class="pub-journal">BMC Health Services Research · Mikesell, Blevins, Eschtruth, Basu A. et al.</div>
+        <span class="pub-note">IPC Program</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2025</span>
+      <div>
+        <div class="pub-title">Maternal trauma history, maternal mental health, and child behavior: a prospective study of mother-child dyads in Lima, Peru</div>
+        <div class="pub-journal">Child Psychiatry &amp; Human Development · Regan, Levey, Basu A., Chen, Gelaye et al.</div>
+        <span class="pub-note">PrOMIS Cohort</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2025</span>
+      <div>
+        <div class="pub-title">Associations between mothers' COVID-related perceived stress and children's internalizing and externalizing symptoms in Peru</div>
+        <div class="pub-journal">Child Psychiatry &amp; Human Development · Blevins, Chen, Basu A. et al.</div>
+        <span class="pub-note">PrOMIS Cohort</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2025</span>
+      <div>
+        <div class="pub-title">A network analysis of 'thinking a lot': connections to childhood trauma and PTSD among men who have sex with men in Vietnam</div>
+        <div class="pub-journal">Social Science &amp; Medicine · Trang, Phan, Basu A., Levey et al.</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2024</span>
+      <div>
+        <div class="pub-title">Perspectives on integrating biological assessments to address the health effects of childhood adversities</div>
+        <div class="pub-journal">Harvard Review of Psychiatry · Blevins, Slopen, Koenen, Mikesell, Basu A.</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2024</span>
+      <div>
+        <div class="pub-title">Sleep as a protective factor for depression and anxiety in the perinatal period: novel causal analyses in a prospective pregnancy cohort</div>
+        <div class="pub-journal">American Journal of Epidemiology · Basu A., Sarvet, Chen, Denckla, Koenen</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2021</span>
+      <div>
+        <div class="pub-title">A cross-national study of factors associated with women's perinatal mental health and wellbeing during the COVID-19 pandemic</div>
+        <div class="pub-journal">PLOS ONE · Basu A., Kim HH et al.</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2021</span>
+      <div>
+        <div class="pub-title">Prioritize systemic approaches for young people's mental health</div>
+        <div class="pub-journal">Nature Human Behaviour · Basu A. [Commentary]</div>
+        <span class="pub-note">Commentary</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2020</span>
+      <div>
+        <div class="pub-title">Incident psychiatric comorbidity following stress disorder diagnoses in Danish school-aged children: prospective population-based study</div>
+        <div class="pub-journal">British Journal of Psychiatry · Basu A., Farkas, Jiang, Koenen, Gradus et al.</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2020</span>
+      <div>
+        <div class="pub-title">The AURORA Study: a longitudinal, multimodal library of brain biology and function after traumatic stress exposure</div>
+        <div class="pub-journal">Molecular Psychiatry · McLean, Ressler, Koenen, Basu A. et al. (large multisite NIMH consortium)</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2018</span>
+      <div>
+        <div class="pub-title">Trauma exposure and post-traumatic stress disorder in a cohort of pregnant Peruvian women</div>
+        <div class="pub-journal">Archives of Women's Mental Health · Levey, Gelaye, Koenen, Basu A. et al. [N=2,920]</div>
+        <span class="pub-note">PrOMIS Cohort</span>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2017</span>
+      <div>
+        <div class="pub-title">Childhood maltreatment and health impact: the examples of cardiovascular disease and type 2 diabetes mellitus in adults</div>
+        <div class="pub-journal">Clinical Psychology · Basu A., McLaughlin, Misra, Koenen</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2013</span>
+      <div>
+        <div class="pub-title">Trauma sequelae and cortisol levels in women exposed to intimate partner violence</div>
+        <div class="pub-journal">Psychodynamic Psychiatry · Basu A., Levendosky, Lonstein</div>
+      </div>
+    </div>
+
+  </div>
+  <p style="margin-top:1.8rem; font-size:.82rem; color:var(--muted);">For a complete publication list, visit Dr. Basu's profile at Harvard Catalyst or PubMed.</p>
+</section>
+
+<!-- ══ MENTORSHIP ══ -->
+<section id="mentorship">
+  <p class="section-label">Research Training, Clinical Supervision, &amp; Mentorship</p>
+  <h2 class="section-title">Building the Next Generation of <em>Scholars, Clinical Researchers, &amp; Practitioners</em></h2>
+  <p style="max-width:70ch; color:var(--slate); margin-bottom:1.5rem; font-size:1rem;">
+    Mentorship is central to Dr. Basu's work. She has trained over 20 mentees at the 
+    undergraduate, master's, doctoral, postdoctoral, and faculty levels — receiving multiple 
+    institutional nominations and awards for exceptional mentorship, with particular recognition 
+    for mentoring women faculty and trainees. She co-founded the Anti-Racism and Diversity 
+    Working Group in the MGH Division of Child and Adolescent Psychiatry and served on the 
+    Diversity, Inclusion, and Belonging committee at Harvard Chan.
+  </p>
+  <p style="max-width:70ch; color:var(--slate); font-size:1rem;">
+    Dr. Basu has supervised psychology interns, fellows, staff psychologists, and clinical 
+    social workers continuously since 2011. She leads or co-leads multiple clinical 
+    programs at MassGeneral Hospital.
+  </p>
+</section>
+
+<!-- ══ AWARDS ══ -->
+<section id="awards">
+  <p class="section-label">Recognition</p>
+  <h2 class="section-title">Honors &amp; <em>Awards</em></h2>
+  <div class="awards-list">
+
+    <div class="award-item">
+      <div class="award-year">2022–2025</div>
+      <div class="award-body">
+        <div class="award-title">Exceptional Mentorship of Women Faculty &amp; Trainees (Awarded 2022; Nominated 2024, 2025)</div>
+        <div class="award-inst">Department of Psychiatry, Massachusetts General Hospital</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2021</div>
+      <div class="award-body">
+        <div class="award-title">Rising Mentor Award Nominee</div>
+        <div class="award-inst">Massachusetts General Hospital — for mentoring trainees and junior faculty</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2015</div>
+      <div class="award-body">
+        <div class="award-title">Rose Traveling Fellowship</div>
+        <div class="award-inst">Harvard T.H. Chan School of Public Health — for international research collaboration</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2008–2010</div>
+      <div class="award-body">
+        <div class="award-title">Graduate Research Enhancement Award &amp; Grants in Aid Award</div>
+        <div class="award-inst">Michigan State University / Society for the Psychological Study of Social Issues — dissertation research</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2009</div>
+      <div class="award-body">
+        <div class="award-title">Student Poster Award</div>
+        <div class="award-inst">International Society for Traumatic Stress Studies</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2006</div>
+      <div class="award-body">
+        <div class="award-title">B.B. Robbie Rossman Memorial Child Maltreatment Research Award</div>
+        <div class="award-inst">Institute of Violence, Abuse, and Trauma — master's thesis research</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">1997–2001</div>
+      <div class="award-body">
+        <div class="award-title">Merit Award in Psychology &amp; Lala Jugal Kishore Jagdish Prasad Memorial Award</div>
+        <div class="award-inst">University of Delhi — ranked first in both B.A. and M.A. in Psychology</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ PUBLIC ENGAGEMENT ══ -->
+<section id="engagement">
+  <p class="section-label">Outreach &amp; Public Communication</p>
+  <h2 class="section-title">Bringing Research to the <em>Public</em></h2>
+  <p style="max-width:65ch; color:var(--slate); margin-bottom:2.5rem; font-size:1rem;">
+    Dr. Basu is committed to translating the state of the science on child, youth, and family mental health, intergenerational and systemic trauma, and coping and resilience to inform actionable change. She has contributed expert knowledge to national policy, major media outlets, international forums, and patient education resources. She has been featured in <em>The New Yorker</em>, NPR, WBUR, the <em>Wall Street Journal</em>, and many other media outlets, and was selected to consult on the U.S. Surgeon General's Advisory on Parental and Caregiver Mental Health.
+  </p>
+  <div class="engage-grid">
+
+    <div class="engage-card">
+      <div class="engage-outlet">U.S. Surgeon General's Advisory</div>
+      <div class="engage-title">Selected as a consultant on the U.S. Surgeon General's Advisory on the Mental Health &amp; Well-Being of Parents</div>
+      <div class="engage-year"><a href="https://www.hhs.gov/surgeongeneral/reports-and-publications/parents/index.html" target="_blank" style="color:var(--teal); font-size:.75rem;">hhs.gov/surgeongeneral/parents →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Parenting &amp; Teen Mental Health</div>
+      <div class="engage-title">Contributing expert to Harvard's Making Caring Common project report on the critical link between parent and teen mental health — examining how caregiver wellbeing shapes adolescent outcomes and what supports families need</div>
+      <div class="engage-year"><a href="https://mcc.gse.harvard.edu/reports/caring-for-the-caregivers" target="_blank" style="color:var(--teal); font-size:.75rem;">mcc.gse.harvard.edu/caring-for-the-caregivers →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">The New Yorker</div>
+      <div class="engage-title">Interviewed by Isaac Chotiner: "Recovering from the Emotional Challenges of the Pandemic"</div>
+      <div class="engage-year"><a href="https://www.newyorker.com/news/q-and-a/recovering-from-the-emotional-challenges-of-the-pandemic" target="_blank" style="color:var(--teal); font-size:.75rem;">newyorker.com →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">NPR — Parenting &amp; Financial Stress</div>
+      <div class="engage-title">Expert commentary on pandemic financial stress and caregiver mental health: how economic hardship compounds parenting challenges and risks lasting impacts on children's wellbeing</div>
+      <div class="engage-year"><a href="https://www.npr.org/sections/health-shots/2020/09/30/918158081/juggling-financial-stress-and-caregiving-parents-are-very-not-ok-in-the-pandemic" target="_blank" style="color:var(--teal); font-size:.75rem;">npr.org →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">WBUR</div>
+      <div class="engage-title">Cognoscenti contributor — expert commentary on children's mental health, pandemic stress, and supporting families across multiple appearances on Boston's NPR news station</div>
+      <div class="engage-year"><a href="https://www.wbur.org/inside/staff/archana-basu" target="_blank" style="color:var(--teal); font-size:.75rem;">wbur.org/inside/staff/archana-basu →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Wall Street Journal</div>
+      <div class="engage-title">Expert commentary on children's mental health and family resilience</div>
+      <div class="engage-year">Multiple appearances</div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Harvard Center on the Developing Child</div>
+      <div class="engage-title">The Brain Architects Podcast — COVID-19 Special Edition: Mental Health in a Locked-Down World</div>
+      <div class="engage-year"><a href="https://developingchild.harvard.edu/resources/podcasts/the-brain-architects-podcast-covid-19-special-edition-mental-health-in-a-locked-down-world/" target="_blank" style="color:var(--teal); font-size:.75rem;">developingchild.harvard.edu →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Roadmap to Resilience</div>
+      <div class="engage-title">Featured guest on the Roadmap for Change podcast — discussing trauma, resilience, and how helpers can sustain their own wellbeing while caring for children and families navigating adversity</div>
+      <div class="engage-year"><a href="https://www.roadmaptoresilience.org/guest/archana-basu" target="_blank" style="color:var(--teal); font-size:.75rem;">roadmaptoresilience.org →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Coping with Complex &amp; Terminal Medical Conditions, Grief &amp; Bereavement</div>
+      <div class="engage-title">Video resource on supporting children and families navigating serious illness, loss, and the psychological dimensions of grief — including through the MGH PACT program for ALS families</div>
+      <div class="engage-year"><a href="https://www.youtube.com/watch?v=ZedUK8EFDpo" target="_blank" style="color:var(--teal); font-size:.75rem;">youtube.com →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Government of India / NCPCR</div>
+      <div class="engage-title">Impact of COVID-19 on the health and wellbeing of children — invited address to India's National Commission for Protection of Child Rights</div>
+      <div class="engage-year">2020</div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Esalen / Collective Trauma Summit</div>
+      <div class="engage-title">It takes a village to build resilience: how to support children and parents in the aftermath of collective trauma</div>
+      <div class="engage-year">2020–2021</div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">MGB Trauma-Informed Care Initiative</div>
+      <div class="engage-title">Building Resilience During the COVID-19 Pandemic through Trauma-Informed Care Principles — published patient and family resource</div>
+      <div class="engage-year">2020</div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">United Nations Population Fund</div>
+      <div class="engage-title">The case for intervening early: pregnancy cohort evidence to inform maternal and child health interventions — Invited address, Lima, Peru</div>
+      <div class="engage-year">2026</div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Instituto Nacional Materno Perinatal</div>
+      <div class="engage-title">The story of a generation: findings, lessons, and future plans from the PrOMIS cohort — Invited address, Lima, Peru</div>
+      <div class="engage-year">2026</div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Harvard Magazine</div>
+      <div class="engage-title">"No Going Back to Normal" — feature on the complexities of children's mental health, the long shadow of pandemic disruption, and what families and systems need to support young people's recovery</div>
+      <div class="engage-year"><a href="https://www.harvardmagazine.com/2022/07/feature-childrens-mental-health" target="_blank" style="color:var(--teal); font-size:.75rem;">harvardmagazine.com →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Harvard Gazette</div>
+      <div class="engage-title">"Worried about your child's mental health? You're not alone." — Harvard experts respond to Pew survey findings that anxiety and depression are top parental concerns, offering practical guidance for families</div>
+      <div class="engage-year"><a href="https://news.harvard.edu/gazette/story/2023/03/worried-about-childs-mental-health-youre-not-alone/" target="_blank" style="color:var(--teal); font-size:.75rem;">news.harvard.edu →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Science Friday</div>
+      <div class="engage-title">Expert contributor to Science Friday — discussing trauma, child development, and the science of resilience for a broad public science audience</div>
+      <div class="engage-year"><a href="https://www.sciencefriday.com/person/archana-basu/" target="_blank" style="color:var(--teal); font-size:.75rem;">sciencefriday.com →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">MedPage Today</div>
+      <div class="engage-title">Expert opinion on children's mental health — clinical perspectives on the pediatric mental health crisis, evidence-based approaches, and what clinicians and policymakers must prioritize</div>
+      <div class="engage-year"><a href="https://www.medpagetoday.com/opinion/second-opinions/94042" target="_blank" style="color:var(--teal); font-size:.75rem;">medpagetoday.com →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">MGH / Massachusetts General Hospital</div>
+      <div class="engage-title">Patient education resource: "Preparing Children for When Their Parents Return to Work" — guidance for families navigating pandemic-related separation anxiety and caregiver transitions</div>
+      <div class="engage-year"><a href="https://www.massgeneral.org/children/coronavirus/preparing-children-for-when-their-parents-return-to-work" target="_blank" style="color:var(--teal); font-size:.75rem;">massgeneral.org →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Harvard Gazette — COVID &amp; Mental Health</div>
+      <div class="engage-title">Harvard Chan School hosts online meetings to discuss COVID-19 updates and their implications for mental health, families, and communities</div>
+      <div class="engage-year"><a href="https://news.harvard.edu/gazette/story/2020/03/chan-school-hosts-online-meetings-to-discuss-updates/" target="_blank" style="color:var(--teal); font-size:.75rem;">news.harvard.edu →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Harvard Gazette — Coping with Pandemic Stress</div>
+      <div class="engage-title">Harvard Chan School forum offers expert advice for dealing with stress, uncertainty, and the emotional toll of pandemic life on adults and children</div>
+      <div class="engage-year"><a href="https://news.harvard.edu/gazette/story/2020/04/harvard-chan-school-forum-offers-advice-for-dealing-with-stress/" target="_blank" style="color:var(--teal); font-size:.75rem;">news.harvard.edu →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">Harvard Gazette — Grief &amp; Loss</div>
+      <div class="engage-title">"Learning How to Mourn During a Pandemic" — expert perspectives on grief, bereavement, and the unique psychological challenges of losing loved ones during COVID-19</div>
+      <div class="engage-year"><a href="https://news.harvard.edu/gazette/story/2020/04/learning-how-to-mourn-during-a-pandemic/" target="_blank" style="color:var(--teal); font-size:.75rem;">news.harvard.edu →</a></div>
+    </div>
+
+    <div class="engage-card">
+      <div class="engage-outlet">MGH for Children / Blum Center</div>
+      <div class="engage-title">Strong from the Start: helping teens build healthy relationships and recognize early signs of intimate partner violence</div>
+      <div class="engage-year"><a href="https://www.massgeneral.org/blum-center/events/blum-center-program-helping-teens-build-healthy-relationships-and-recognize-early-signs-of-unhealthy-ones" target="_blank" style="color:var(--teal); font-size:.75rem;">massgeneral.org/blum-center →</a></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div>
+    <div class="foot-name">Archana Basu, PhD</div>
+    <div style="font-size:.72rem; margin-top:.4rem; color:rgba(255,255,255,.35); letter-spacing:.04em;">
+      Harvard Medical School &nbsp;·&nbsp; Harvard T.H. Chan School of Public Health &nbsp;·&nbsp; Massachusetts General Hospital
+    </div>
+    <div style="font-size:.68rem; margin-top:.3rem; color:rgba(255,255,255,.25);">55 Fruit Street, Yawkey 6A, Boston MA 02115 &nbsp;·&nbsp; pediatricpopulationhealth@mgb.org</div>
+  </div>
+  <div class="foot-note">
+    Profile prepared from CV dated April 30, 2026. Intended as a foundation for a research group website and professional outreach. Content reflects Dr. Basu's scholarly record, institutional affiliations, and funded research as of June 2026.
+  </div>
+</footer>
+
+</body>
+</html>
